@@ -1,10 +1,9 @@
 import os
-import pneumo_finder as pf
+import pneumo_finder_service as pf
 
 # Caminhos base
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-CAMINHO_MODELO = os.path.join(BASE_DIR, "..", "best_model.keras")
-CAMINHO_IMGS = os.path.join(BASE_DIR, "imgs")
+CAMINHO_MODELO = "best_model.keras"
+CAMINHO_IMGS = "imgs\\"
 
 # Inicializa detector
 detector = pf.DetectorDePneumonia(CAMINHO_MODELO)
@@ -20,7 +19,7 @@ def menu():
 
         if escolha == "1":
             nome_img = input("Digite o nome da imagem (ex: 1_normal1.jpeg): ")
-            caminho_img = os.path.join(CAMINHO_IMGS, nome_img)
+            caminho_img = CAMINHO_IMGS + nome_img
             if os.path.exists(caminho_img):
                 detector.diagnosticar_imagem(caminho_img)
             else:
