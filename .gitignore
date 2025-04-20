@@ -1,5 +1,6 @@
 # Ignorar diretórios e arquivos do ambiente virtual
 venv/
+.venv
 .env/
 __pycache__/
 *.pyc

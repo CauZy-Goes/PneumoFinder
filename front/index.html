@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PneumoFinder</title>
+</head>
+
+<body>
+    <h1>Diagnóstico de Pneumonia</h1>
+
+    <p>Coloque a imagem aqui ou selecione uma imagem.</p>
+
+    <!-- Área para colar a imagem -->
+    <div id="imagem-area" contenteditable="true" style="border: 1px dashed #ccc; width: 300px; height: 200px;">
+    </div>
+
+    <!-- Campo de input de arquivo -->
+    <input type="file" id="imagem" name="imagem" style="display:none;">
+
+    <!-- Botão para selecionar a imagem -->
+    <button type="button" onclick="document.getElementById('imagem').click()">Selecionar Imagem</button>
+
+    <!-- Usando o onClick para disparar a função -->
+    <button id="diagnosticar-btn" type="button" onclick="enviarImagem()">Diagnosticar</button>
+
+    <p id="resultado"></p>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

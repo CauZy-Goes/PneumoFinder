@@ -4,7 +4,9 @@ import os
 import pneumo_finder_service as pf
 
 app = Flask(__name__)
-CORS(app)  # Libera acesso para o frontend (CORS)
+
+# Permitir CORS para qualquer origem (para fins de desenvolvimento)
+CORS(app)
 
 detector = pf.DetectorDePneumonia("best_model.keras")
 
@@ -19,8 +21,13 @@ def diagnosticar():
 
     try:
         classe, confianca = detector.diagnosticar_imagem(caminho_temp)
-        os.remove(caminho_temp)  # Limpa o arquivo
-        return jsonify({"classe": classe, "confianca": round(confianca, 2)})
+        os.remove(caminho_temp)
+        response = {
+        "classe": str(classe),
+        "confianca": float(round(confianca.item(), 2))  # .item() garante conversão de np.float32 para float
+        }
+        print("Resposta gerada para o front:", response)
+        return jsonify(response)
     except Exception as e:
         return jsonify({"erro": str(e)}), 500
 
