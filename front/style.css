@@ -1,0 +1,103 @@
+/* Tipografia */
+body {
+    margin: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+.texto-destaque {
+    color: #2d73ff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        'cabecalho cabecalho'
+        'dropzone-conteudo dropzone-imagem'
+        'sobre-imagem sobre-conteudo'
+        'como-usar-conteudo como-usar-imagem'
+    ;
+    row-gap: 20px;
+    column-gap: 20px;
+    padding: 10px;
+}
+
+header {
+    grid-area: cabecalho;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+section#dropzone-conteudo {
+    grid-area: dropzone-conteudo;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+section#dropzone-imagem {
+    grid-area: dropzone-imagem;
+}
+
+section#sobre-imagem {
+    grid-area: sobre-imagem;
+}
+
+section#dropzone-imagem>img,
+section#sobre-imagem>img,
+section#como-usar-imagem>img {
+    max-width: 100%;
+    width: 500px;
+    border: 1px solid red;
+}
+
+section#sobre-conteudo {
+    grid-area: sobre-conteudo;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+section#como-usar-conteudo {
+    grid-area: como-usar-conteudo;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+section#como-usar-imagem {
+    grid-area: como-usar-imagem;
+}
+
+#dropzone {
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    color: #888;
+    cursor: pointer;
+}
+
+#dropzone.hover {
+    border-color: #4CAF50;
+    color: #4CAF50;
+}
+
+#imagem {
+    display: none;
+}

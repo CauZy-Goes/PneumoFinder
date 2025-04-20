@@ -4,27 +4,68 @@
 <head>
     <meta charset="UTF-8">
     <title>PneumoFinder</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Diagnóstico de Pneumonia</h1>
 
-    <p>Coloque a imagem aqui ou selecione uma imagem.</p>
+    <div class="container">
 
-    <!-- Área para colar a imagem -->
-    <div id="imagem-area" contenteditable="true" style="border: 1px dashed #ccc; width: 300px; height: 200px;">
+        <header>
+            <img src="IMGs_PneumoFinder/Logo E Nome-Photoroom.png" alt="Logo Com Nome do PneumoFinder">
+        </header>
+
+        <section id="dropzone-conteudo">
+            <h1>Faça o upload de um <span class="texto-destaque">Raio-X</span> para analisarmos o pulmão</h1>
+
+            <ul>
+                <li>O PneumoFinder usa inteligência artificial para identificar sinais de pneumonia em segundos</li>
+                <li>Basta selecionar ou arrastar uma imagem para começar a análise</li>
+                <li>O resultado é exibido logo abaixo com base no nosso modelo treinado em milhares de exames reais</li>
+                <li>Totalmente automatizado, rápido e acessível</li>
+            </ul>
+
+            <div id="dropzone" onclick="document.getElementById('imagem').click()">
+                <div id="instrucoes">
+                    Clique ou arraste a imagem aqui<br>
+                    (ou cole a imagem do Ctrl+V)
+                </div>
+                <br><br>
+                <img id="preview" src="" alt="Prévia da imagem"
+                    style="max-width: 300px; margin-top: 10px; display: none;">
+            </div>
+
+            <input type="file" id="imagem" accept="image/*">
+            <button onclick="enviarImagem()">Diagnosticar</button>
+            <p id="resultado"></p>
+        </section>
+
+        <section id="dropzone-imagem">
+            <img src="IMGs_PneumoFinder/Robo Fofo transparente-Photoroom.png" alt="foto da capa do dropzone">
+        </section>
+
+        <section id="sobre-imagem">
+            <img src="IMGs_PneumoFinder/Robo Fofo3 pequeno em pe transparente-Photoroom.png"
+                alt="foto da capa do sobre">
+        </section>
+
+        <section id="sobre-conteudo">
+
+        </section>
+
+        <section id="como-usar-conteudo">
+
+        </section>
+
+        <section id="como-usar-imagem">
+            <img src="IMGs_PneumoFinder/Robo Fofo em pe transparente-Photoroom.png" alt="foto da capa do como usar">
+        </section>
+
     </div>
 
-    <!-- Campo de input de arquivo -->
-    <input type="file" id="imagem" name="imagem" style="display:none;">
-
-    <!-- Botão para selecionar a imagem -->
-    <button type="button" onclick="document.getElementById('imagem').click()">Selecionar Imagem</button>
-
-    <!-- Usando o onClick para disparar a função -->
-    <button id="diagnosticar-btn" type="button" onclick="enviarImagem()">Diagnosticar</button>
-
-    <p id="resultado"></p>
+    <footer>
+        <h2>footer</h2>
+    </footer>
 
     <script src="script.js"></script>
 </body>
