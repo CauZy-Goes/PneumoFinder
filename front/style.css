@@ -3,6 +3,7 @@ body {
     margin: 0;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: #e8e8e8;
+    ;
 }
 
 h1 {
@@ -38,8 +39,8 @@ h3 {
     font-weight: bold;
 }
 
-.texto-destaque-pink {
-    color: #ff6dc6;
+.texto-destaque-blue {
+    color: #2d73ff;
     font-weight: bold;
     font-size: 1.3em;
 }
@@ -58,6 +59,8 @@ h3 {
     row-gap: 20px;
     column-gap: 20px;
     padding: 10px;
+    background-color: #e8e8e8;
+    ;
 }
 
 header {
@@ -71,7 +74,7 @@ header {
 }
 
 header>img {
-    width: 200px;
+    width: 300px;
 }
 
 section#dropzone-conteudo {
@@ -218,7 +221,7 @@ section#sobre-conteudo ul li::before {
     position: absolute;
     left: 5px;
     top: 0;
-    color: #14a085;
+    color: #2d73ff;
     font-weight: bold;
 }
 
@@ -254,7 +257,7 @@ section#como-usar-conteudo h1 {
     text-align: center;
     margin-bottom: 0.5em;
     margin-top: 0;
-    color: #ff6dc6;
+    color: #2d73ff;
 }
 
 section#como-usar-conteudo p {
@@ -282,4 +285,39 @@ kbd {
     border-radius: 4px;
     font-family: monospace;
     font-size: 0.95em;
+}
+
+footer#rodape {
+    background-color: #2d73ff;
+    padding: 2em 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-top: #000342 solid 5px;
+}
+
+footer .logo-footer img {
+    width: 30%;
+    height: auto;
+    margin-bottom: 1em;
+}
+
+.links-sociais a {
+    margin: 0 0.5em;
+    font-size: 3em;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.links-sociais a:hover {
+    color: #000342;
+}
+
+
+footer .copy {
+    margin-top: 1em;
+    font-size: 0.9em;
+    color: #ffffff;
 }
