@@ -8,7 +8,7 @@ function mostrarPreview(file) {
     reader.onload = function (e) {
         preview.src = e.target.result;
         preview.style.display = "block";
-        instrucoes.textContent = "Imagem selecionada abaixo:";
+        instrucoes.textContent = "Imagem selecionada :";
         instrucoes.style.display = "block"; // Continua visível, mas com novo texto
     };
     reader.readAsDataURL(file);
@@ -56,7 +56,7 @@ async function enviarImagem() {
     // Impede o comportamento padrão de recarregar a página ao enviar a imagem
     const input = document.getElementById('imagem');
     const resultado = document.getElementById("resultado");
-    const imagemArea = document.getElementById("imagem-area");  // Pegando a área de colagem
+    const imagemRobo = document.getElementById("imagem-robo");
 
     if (input.files.length === 0) {
         alert("Escolha uma imagem.");
@@ -84,14 +84,24 @@ async function enviarImagem() {
             return;
         } else {
             console.log(`Diagnóstico: ${dados.classe} (confiança: ${dados.confianca})`);
-            resultado.innerText = `Diagnóstico: ${dados.classe} (confiança: ${dados.confianca})`;
+
+            const imagemRobo = document.getElementById("imagem-robo");
+
+            if (dados.classe === "NORMAL") {
+                imagemRobo.src = "IMGs_PneumoFinder/dropzone-imagem-Photoroom.png";
+            } else {
+                imagemRobo.src = "IMGs_PneumoFinder/dropzone-imagem-red-Photoroom.png";
+            }
+
+
+            let classeCor = dados.classe === "NORMAL" ? "texto-destaque" : "texto-destaque-red";
+            resultado.innerHTML = `Diagnóstico: <span class="${classeCor}">${dados.classe}</span> (confiança: <span class="${classeCor}">${dados.confianca}</span>)`;
+
         }
     } catch (erro) {
         console.error("Erro ao enviar a imagem:", erro);
         resultado.innerText = "Erro ao enviar a imagem. Verifique a conexão.";
     }
 
-    // Limpa a área de colagem após o envio
-    imagemArea.innerHTML = "Cole a imagem aqui";  // Resetando o conteúdo da div de colagem
     input.value = "";  // Limpando o campo de input de arquivo
 }

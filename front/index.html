@@ -16,13 +16,19 @@
         </header>
 
         <section id="dropzone-conteudo">
-            <h1>Faça o upload de um <span class="texto-destaque">Raio-X</span> para analisarmos o pulmão</h1>
+            <h1>Faça o upload de uma <span class="texto-destaque">Radiografia de Torax</span> para a <span
+                    class="texto-destaque">IA</span> analisar o pulmão</h1>
 
             <ul>
-                <li>O PneumoFinder usa inteligência artificial para identificar sinais de pneumonia em segundos</li>
-                <li>Basta selecionar ou arrastar uma imagem para começar a análise</li>
-                <li>O resultado é exibido logo abaixo com base no nosso modelo treinado em milhares de exames reais</li>
-                <li>Totalmente automatizado, rápido e acessível</li>
+                <li>O <span class="texto-destaque">PneumoFinder</span> usa <span class="texto-destaque">inteligência
+                        artificial</span> para identificar
+                    sinais de <span class="texto-destaque">pneumonia</span> em segundos</li>
+                <li>Basta <span class="texto-destaque">selecionar ou arrastar</span> uma imagem para começar a <span
+                        class="texto-destaque">análise</span>
+                </li>
+                <li>O <span class="texto-destaque">resultado</span> é exibido logo abaixo com base no nosso modelo
+                    treinado em <span class="texto-destaque">milhares de exames reais</span> </li>
+                <li>Totalmente <span class="texto-destaque">automatizado, rápido e acessível</span></li>
             </ul>
 
             <div id="dropzone" onclick="document.getElementById('imagem').click()">
@@ -32,7 +38,7 @@
                 </div>
                 <br><br>
                 <img id="preview" src="" alt="Prévia da imagem"
-                    style="max-width: 300px; margin-top: 10px; display: none;">
+                    style="max-width: 30px; margin-top: 10px; display: none;">
             </div>
 
             <input type="file" id="imagem" accept="image/*">
@@ -41,7 +47,7 @@
         </section>
 
         <section id="dropzone-imagem">
-            <img src="IMGs_PneumoFinder/Robo Fofo transparente-Photoroom.png" alt="foto da capa do dropzone">
+            <img id="imagem-robo" src="IMGs_PneumoFinder/dropzone-imagem-Photoroom.png" alt="foto da capa do dropzone">
         </section>
 
         <section id="sobre-imagem">
@@ -50,7 +56,29 @@
         </section>
 
         <section id="sobre-conteudo">
+            <h2>ℹ️ Sobre o Projeto</h2>
+            <p>
+                Este é um projeto acadêmico desenvolvido como parte da disciplina de <strong>Inteligência
+                    Artificial</strong>.
+                Seu objetivo é aplicar <strong>redes neurais convolucionais (CNNs)</strong> para auxiliar na detecção de
+                <strong>pneumonia</strong> a partir de imagens de raio-X de tórax.
+            </p>
 
+            <h3>⚠️ Atenção</h3>
+            <p>
+                Esta ferramenta foi criada exclusivamente para fins educacionais. Os resultados apresentados <strong>não
+                    devem ser interpretados como diagnóstico médico definitivo</strong>.
+                Apesar de a IA ter alcançado uma boa taxa de acerto nos testes, <strong>não há garantias quanto à
+                    precisão da classificação</strong>.
+            </p>
+
+            <h3>🖼️ Recomendações de Imagem</h3>
+            <ul>
+                <li>Utilize imagens de raio-X do pulmão com boa resolução.</li>
+                <li>Evite imagens com textos sobrepostos ou elementos gráficos adicionais.</li>
+                <li>Não utilize imagens com baixa qualidade, marcas d’água ou logotipos.</li>
+                <li>Imagens clínicas muito editadas ou com artefatos podem comprometer a análise.</li>
+            </ul>
         </section>
 
         <section id="como-usar-conteudo">

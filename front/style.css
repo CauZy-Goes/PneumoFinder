@@ -18,6 +18,12 @@ h3 {
 
 .texto-destaque {
     color: #2d73ff;
+    font-weight: bold;
+}
+
+.texto-destaque-red {
+    color: red;
+    font-weight: bold;
 }
 
 .container {
@@ -31,7 +37,7 @@ h3 {
         'sobre-imagem sobre-conteudo'
         'como-usar-conteudo como-usar-imagem'
     ;
-    row-gap: 20px;
+    /* row-gap: 20px; */
     column-gap: 20px;
     padding: 10px;
 }
@@ -39,8 +45,15 @@ h3 {
 header {
     grid-area: cabecalho;
     display: flex;
+    justify-content: center;
     align-items: center;
     padding: 0 10px;
+    border-bottom: 10px solid #016798;
+    text-align: center;
+}
+
+header>img {
+    width: 200px;
 }
 
 section#dropzone-conteudo {
@@ -48,22 +61,112 @@ section#dropzone-conteudo {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+
+
+}
+
+section#dropzone-conteudo h1 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+
+section#dropzone-conteudo ul {
+    text-align: center;
+    margin: 0;
+}
+
+section#dropzone-conteudo #dropzone {
+    border: 2px dashed #016798;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 30px 0;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    color: #016798;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+section#dropzone-conteudo #dropzone:hover {
+    border-color: #000358;
+    color: #000358;
+}
+
+section#dropzone-conteudo ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0;
+}
+
+section#dropzone-conteudo ul li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+    color: #333;
+}
+
+section#dropzone-conteudo ul li::before {
+    content: "✔";
+    position: absolute;
+    left: 5px;
+    top: 0;
+    color: #2d73ff;
+    font-weight: bold;
+}
+
+section#dropzone-conteudo button {
+    padding: 5px 30px;
+    background-color: #2d73ff;
+    color: white;
+    font-size: 1.5em;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+section#dropzone-conteudo button:hover {
+    padding: 5px 30px;
+    background-color: white;
+    color: #2d73ff;
+    font-size: 1.5em;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+section#dropzone-conteudo p {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+#imagem {
+    display: none;
 }
 
 section#dropzone-imagem {
     grid-area: dropzone-imagem;
+    text-align: center;
 }
 
 section#sobre-imagem {
     grid-area: sobre-imagem;
+    border: 1px solid red;
+    text-align: center;
 }
 
 section#dropzone-imagem>img,
 section#sobre-imagem>img,
 section#como-usar-imagem>img {
     max-width: 100%;
-    width: 500px;
-    border: 1px solid red;
+    width: 100%;
 }
 
 section#sobre-conteudo {
@@ -71,6 +174,7 @@ section#sobre-conteudo {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border: 1px solid red;
 }
 
 section#como-usar-conteudo {
@@ -78,26 +182,12 @@ section#como-usar-conteudo {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border: 1px solid red;
+
 }
 
 section#como-usar-imagem {
     grid-area: como-usar-imagem;
-}
-
-#dropzone {
-    border: 2px dashed #ccc;
-    border-radius: 10px;
-    padding: 30px;
+    border: 1px solid red;
     text-align: center;
-    color: #888;
-    cursor: pointer;
-}
-
-#dropzone.hover {
-    border-color: #4CAF50;
-    color: #4CAF50;
-}
-
-#imagem {
-    display: none;
 }
