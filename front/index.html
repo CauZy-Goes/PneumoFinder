@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>PneumoFinder</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a2d2a0f4a1.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -56,33 +57,80 @@
         </section>
 
         <section id="sobre-conteudo">
-            <h2>ℹ️ Sobre o Projeto</h2>
+            <h1>ℹ️ Sobre o Projeto</h1>
             <p>
-                Este é um projeto acadêmico desenvolvido como parte da disciplina de <strong>Inteligência
-                    Artificial</strong>.
-                Seu objetivo é aplicar <strong>redes neurais convolucionais (CNNs)</strong> para auxiliar na detecção de
-                <strong>pneumonia</strong> a partir de imagens de raio-X de tórax.
+                Este é um projeto acadêmico desenvolvido como parte da disciplina de <span
+                    class="texto-destaque">Inteligência
+                    Artificial</span>.
+                Seu objetivo é aplicar <span class="texto-destaque">redes neurais convolucionais (CNNs)</span> para
+                auxiliar na detecção de
+                <span class="texto-destaque">pneumonia</span> a partir de imagens de <span class="texto-destaque">raio-X
+                    de tórax.</span>
             </p>
 
-            <h3>⚠️ Atenção</h3>
+            <h2 style="color: #ffb02e; font-weight: bold;">⚠️ Atenção</h2>
             <p>
-                Esta ferramenta foi criada exclusivamente para fins educacionais. Os resultados apresentados <strong>não
-                    devem ser interpretados como diagnóstico médico definitivo</strong>.
-                Apesar de a IA ter alcançado uma boa taxa de acerto nos testes, <strong>não há garantias quanto à
-                    precisão da classificação</strong>.
+                Esta ferramenta foi criada exclusivamente para fins educacionais. Os resultados apresentados <span
+                    class="texto-destaque-yellow">não
+                    devem ser interpretados como diagnóstico médico definitivo</span>.
+                Apesar de a IA ter alcançado uma boa taxa de acerto nos testes, <span class="texto-destaque-yellow">não
+                    há
+                    garantias quanto à
+                    precisão da classificação</span>.
             </p>
 
-            <h3>🖼️ Recomendações de Imagem</h3>
+            <h2 style="color: black;">🖼️ <span class="texto-destaque-green">Recomendações de Imagem</span></h2>
             <ul>
-                <li>Utilize imagens de raio-X do pulmão com boa resolução.</li>
-                <li>Evite imagens com textos sobrepostos ou elementos gráficos adicionais.</li>
-                <li>Não utilize imagens com baixa qualidade, marcas d’água ou logotipos.</li>
-                <li>Imagens clínicas muito editadas ou com artefatos podem comprometer a análise.</li>
+                <li>Utilize imagens de raio-X do pulmão com <span class="texto-destaque-green">boa resolução.</span>
+                </li>
+                <li> <span class="texto-destaque-red">Evite</span> imagens com textos sobrepostos ou elementos gráficos
+                    adicionais.</li>
+                <li><span class="texto-destaque-red">Não utilize</span> imagens com baixa qualidade, marcas d’água ou
+                    logotipos.</li>
+                <li>Imagens clínicas <span class="texto-destaque-green">muito editadas ou com artefatos</span> podem
+                    comprometer a análise.</li>
             </ul>
         </section>
 
         <section id="como-usar-conteudo">
+            <h1>🧠 Como usar o <span class="texto-destaque">PneumoFinder ?</span></h1>
+            <h2><span style="color: #ff6dc6; font-size: 1em;">Siga os passos abaixo para utilizar a IA
+                    corretamente:</span></h2>
 
+            <ol>
+                <li>
+                    <span class="texto-destaque-pink">Passo 1:</span> Encontre uma fonte confiável de imagens de raio-X
+                    de
+                    pulmões com ou sem
+                    pneumonia
+                    (ex: bases de dados médicas ou artigos científicos).
+                </li>
+                <li>
+                    <span class="texto-destaque-pink">Passo 2:</span> Escolha uma imagem com <span
+                        class="texto-destaque-green">boa
+                        resolução</span>
+                    e proporções adequadas.
+                    <br><br><span class="texto-destaque-red">⚠️ Evite imagens com textos, marcações ou figuras que não
+                        façam
+                        parte do raio-X</span> — isso pode comprometer a análise da IA.
+                </li>
+                <li>
+                    <span class="texto-destaque-pink">Passo 3:</span> Copie ou baixe a imagem desejada.
+                </li>
+                <li>
+                    <span class="texto-destaque-pink">Passo 4:</span> Volte ao <span
+                        class="texto-destaque">PneumoFinder</span> e cole
+                    (<kbd>Ctrl + V</kbd>) ou anexe a imagem no campo indicado.
+                </li>
+                <li>
+                    <span class="texto-destaque-pink">Passo 5:</span> A classificação da imagem será exibida logo abaixo
+                    após
+                    a análise,
+                    indicando se há sinais de
+                    <span class="texto-destaque-red">pneumonia</span> ou se o pulmão está <span
+                        class="texto-destaque">normal</span>.
+                </li>
+            </ol>
         </section>
 
         <section id="como-usar-imagem">
@@ -91,9 +139,26 @@
 
     </div>
 
-    <footer>
-        <h2>footer</h2>
+    <footer id="rodape">
+        <div class="logo-footer">
+            <img src="IMGs_PneumoFinder/Logo E Nome-Photoroom.png" alt="Logo Com Nome do PneumoFinder">
+        </div>
+
+        <div class="links-sociais">
+            <a href="https://github.com/CauZy-Goes?tab=repositories" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/feed/" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://x.com/cauzy_goes" target="_blank" aria-label="X (Twitter)">
+                <i class="fab fa-x-twitter"></i>
+            </a>
+        </div>
+
+        <p class="copy">© 2025 Cauã Goes - Projeto Acadêmico IA</p>
     </footer>
+
 
     <script src="script.js"></script>
 </body>

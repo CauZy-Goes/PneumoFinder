@@ -2,10 +2,12 @@
 body {
     margin: 0;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #e8e8e8;
 }
 
 h1 {
     font-size: 2.5rem;
+    margin-bottom: 0.2em;
 }
 
 h2 {
@@ -26,6 +28,22 @@ h3 {
     font-weight: bold;
 }
 
+.texto-destaque-yellow {
+    color: #ffb02e;
+    font-weight: bold;
+}
+
+.texto-destaque-green {
+    color: #14a085;
+    font-weight: bold;
+}
+
+.texto-destaque-pink {
+    color: #ff6dc6;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -37,7 +55,7 @@ h3 {
         'sobre-imagem sobre-conteudo'
         'como-usar-conteudo como-usar-imagem'
     ;
-    /* row-gap: 20px; */
+    row-gap: 20px;
     column-gap: 20px;
     padding: 10px;
 }
@@ -62,8 +80,6 @@ section#dropzone-conteudo {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-
 }
 
 section#dropzone-conteudo h1 {
@@ -101,12 +117,14 @@ section#dropzone-conteudo #dropzone:hover {
     color: #000358;
 }
 
+section#sobre-conteudo ul,
 section#dropzone-conteudo ul {
     list-style: none;
     padding-left: 0;
     margin: 0 0;
 }
 
+section#sobre-conteudo ul li,
 section#dropzone-conteudo ul li {
     position: relative;
     padding-left: 30px;
@@ -115,6 +133,7 @@ section#dropzone-conteudo ul li {
     color: #333;
 }
 
+section#sobre-conteudo ul li::before,
 section#dropzone-conteudo ul li::before {
     content: "✔";
     position: absolute;
@@ -158,7 +177,6 @@ section#dropzone-imagem {
 
 section#sobre-imagem {
     grid-area: sobre-imagem;
-    border: 1px solid red;
     text-align: center;
 }
 
@@ -174,7 +192,34 @@ section#sobre-conteudo {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px solid red;
+    align-items: center;
+    text-align: center;
+}
+
+section#sobre-conteudo h1 {
+    margin-top: 0;
+}
+
+section#sobre-conteudo h2,
+section#sobre-conteudo h3 {
+    margin: 0.2em 0;
+    color: #2d73ff;
+}
+
+section#sobre-conteudo p {
+
+    margin: 0 0 1em;
+    line-height: 1.6;
+    font-size: 1.2em;
+}
+
+section#sobre-conteudo ul li::before {
+    content: "✔";
+    position: absolute;
+    left: 5px;
+    top: 0;
+    color: #14a085;
+    font-weight: bold;
 }
 
 section#como-usar-conteudo {
@@ -182,12 +227,59 @@ section#como-usar-conteudo {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px solid red;
-
+    align-items: center;
+    text-align: center;
 }
 
 section#como-usar-imagem {
     grid-area: como-usar-imagem;
-    border: 1px solid red;
     text-align: center;
+}
+
+@media (max-width: 1000px) {
+    section#como-usar-imagem {
+        grid-area: como-usar-imagem;
+        text-align: center;
+        background: url(IMGs_PneumoFinder/Logo-Photoroom.png) no-repeat;
+        background-position: bottom center;
+        /* Fica no centro horizontal e embaixo vertical */
+        background-size: 65% auto;
+        /* Garante que a imagem não ultrapasse o tamanho do container */
+        background-repeat: no-repeat;
+        min-height: 200px;
+    }
+}
+
+section#como-usar-conteudo h1 {
+    text-align: center;
+    margin-bottom: 0.5em;
+    margin-top: 0;
+    color: #ff6dc6;
+}
+
+section#como-usar-conteudo p {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+section#como-usar-conteudo ol {
+    list-style: none;
+    padding-left: 1.5rem;
+    font-size: 1.1em;
+    max-width: 800px;
+}
+
+section#como-usar-conteudo ol li {
+    text-align: left;
+    margin-bottom: 2em;
+    line-height: 1.6;
+}
+
+kbd {
+    background-color: #f0f0f0;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.95em;
 }
