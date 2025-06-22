@@ -1,44 +1,192 @@
+'use client';
 
-export function Main(){
+import { useRef, useState, useEffect } from 'react';
+
+export function Main() {
+  const [imagemPreview, setImagemPreview] = useState<string | null>(null);
+  const [imagemArquivo, setImagemArquivo] = useState<File | null>(null);
+  const [imagemRobo, setImagemRobo] = useState<string>('IMGs_PneumoFinder/dropzone-imagem-Photoroom.png');
+  const [resultado, setResultado] = useState<string>('');
+  const [hover, setHover] = useState<boolean>(false);
+
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  // 👉 Função para mostrar a prévia da imagem
+  const mostrarPreview = (file: File) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      setImagemPreview(e.target?.result as string);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  // 👉 Evento de colar imagem (Ctrl+V)
+  useEffect(() => {
+    const handlePaste = (e: ClipboardEvent) => {
+      const items = e.clipboardData?.items;
+      if (items) {
+        for (const item of items) {
+          if (item.type.indexOf('image') !== -1) {
+            const file = item.getAsFile();
+            if (file) {
+              setImagemArquivo(file);
+              mostrarPreview(file);
+              break;
+            }
+          }
+        }
+      }
+    };
+
+    document.addEventListener('paste', handlePaste);
+    return () => {
+      document.removeEventListener('paste', handlePaste);
+    };
+  }, []);
+
+  const enviarImagem = async () => {
+  if (!imagemArquivo) {
+    alert('Selecione uma imagem primeiro!');
+    return;
+  }
+
+  setResultado('Processando imagem...');
+
+  const formData = new FormData();
+  formData.append('imagem', imagemArquivo);
+
+  try {
+    const resposta = await fetch('http://127.0.0.1:5001/diagnosticar', {
+      method: 'POST',
+      body: formData,
+    });
+
+    const dados = await resposta.json();
+
+    if (dados.erro) {
+      setResultado(`Erro: ${dados.erro}`);
+    } else {
+      const classeCor = dados.classe === 'NORMAL' ? 'texto-destaque' : 'texto-destaque-red';
+
+      // ✅ 🔥 Aqui troca a imagem do robô de acordo com o resultado:
+      if (dados.classe === 'NORMAL') {
+        setImagemRobo('IMGs_PneumoFinder/dropzone-imagem-Photoroom.png');
+      } else {
+        setImagemRobo('IMGs_PneumoFinder/dropzone-imagem-red-Photoroom.png');
+      }
+
+      setResultado(
+        `Diagnóstico: ` +
+          `<span class="${classeCor}">${dados.classe}</span> ` +
+          `(Confiança: <span class="${classeCor}">${dados.confianca}</span>)`
+      );
+    }
+  } catch (error) {
+    setResultado('Erro ao enviar a imagem. Verifique sua conexão.');
+  }
+
+  setImagemArquivo(null);
+};
+
+
+  // 👉 Evento de clicar na dropzone
+  const handleClickDropzone = () => {
+    inputRef.current?.click();
+  };
+
+  // 👉 Quando o usuário solta um arquivo na dropzone
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setHover(false);
+
+    const file = e.dataTransfer.files[0];
+    if (file) {
+      setImagemArquivo(file);
+      mostrarPreview(file);
+    }
+  };
+
+  // 👉 Quando um arquivo é selecionado manualmente
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setImagemArquivo(file);
+      mostrarPreview(file);
+    }
+  };
+
+
     return (
         <div className="container">
             <section id="dropzone-conteudo">
-                <h1>Faça o upload de uma <span className="texto-destaque">Radiografia de Torax</span> para a <span
-                        className="texto-destaque">IA</span> analisar o pulmão</h1>
+                <h1>
+                    Faça o upload de uma <span className="texto-destaque">Radiografia de Tórax</span> para a{' '}
+                    <span className="texto-destaque">IA</span> analisar o pulmão
+                </h1>
 
                 <ul>
-                    <li>O <span className="texto-destaque">PneumoFinder</span> usa <span className="texto-destaque">inteligência
-                            artificial</span> para identificar
-                        sinais de <span className="texto-destaque">pneumonia</span> em segundos</li>
-                    <li>Basta <span className="texto-destaque">selecionar ou arrastar</span> uma imagem para começar a <span
-                            className="texto-destaque">análise</span>
+                    <li>
+                    O <span className="texto-destaque">PneumoFinder</span> usa{' '}
+                    <span className="texto-destaque">Inteligência Artificial</span> para identificar sinais de{' '}
+                    <span className="texto-destaque">pneumonia</span> em segundos
                     </li>
-                    <li>O <span className="texto-destaque">resultado</span> é exibido logo abaixo com base no nosso modelo
-                        treinado em <span className="texto-destaque">milhares de exames reais</span> </li>
-                    <li>Totalmente <span className="texto-destaque">automatizado, rápido e acessível</span></li>
+                    <li>
+                    Basta <span className="texto-destaque">selecionar ou arrastar</span> uma imagem para começar a{' '}
+                    <span className="texto-destaque">análise</span>
+                    </li>
+                    <li>
+                    O <span className="texto-destaque">resultado</span> é exibido logo abaixo com base no nosso modelo treinado
+                    em <span className="texto-destaque">milhares de exames reais</span>
+                    </li>
+                    <li>
+                    Totalmente <span className="texto-destaque">automatizado, rápido e acessível</span>
+                    </li>
                 </ul>
 
-                <div id="dropzone">
+                <div
+                    id="dropzone"
+                    onClick={handleClickDropzone}
+                    onDragOver={(e) => {
+                    e.preventDefault();
+                    setHover(true);
+                    }}
+                    onDragLeave={() => setHover(false)}
+                    onDrop={handleDrop}
+                    className={hover ? 'hover' : ''}
+                >
                     <div id="instrucoes">
-                        Clique ou arraste a imagem aqui<br/>
-                        (ou cole a imagem do Ctrl+V)
+                    {imagemPreview ? 'Imagem selecionada:' : 'Clique ou arraste a imagem aqui (ou cole do Ctrl+V)'}
                     </div>
-                    <br/><br/>
-                    <img id="preview"  alt="Prévia da imagem"
-                        style={{ 
-                                maxWidth: "30px", 
-                                marginTop: "10px", 
-                                display: "none" 
-                            }}/>
+                    <br />
+                    {imagemPreview && (
+                    <img
+                        src={imagemPreview}
+                        alt="Prévia da imagem"
+                        style={{ maxWidth: '100px', marginTop: '10px', display: 'block' }}
+                    />
+                    )}
                 </div>
 
-                <input type="file" id="imagem" accept="image/*"/>
-                <button>Diagnosticar</button>
-                <p id="resultado"></p>
+                <input
+                    type="file"
+                    ref={inputRef}
+                    accept="image/*"
+                    style={{ display: 'none' }}
+                    onChange={handleInputChange}
+                />
+
+                <button onClick={enviarImagem}>Diagnosticar</button>
+
+                <p
+                    id="resultado"
+                    dangerouslySetInnerHTML={{
+                    __html: resultado,
+                    }}
+                ></p>
             </section>
 
             <section id="dropzone-imagem">
-                <img id="imagem-robo" src="IMGs_PneumoFinder/dropzone-imagem-Photoroom.png" alt="foto da capa do dropzone"/>
+                <img id="imagem-robo" src={imagemRobo} alt="foto da capa do dropzone"/>
             </section>
 
             <section id="sobre-imagem">
@@ -127,5 +275,5 @@ export function Main(){
                 <img src="IMGs_PneumoFinder/Robo Fofo em pe transparente-Photoroom.png" alt="foto da capa do como usar"/>
             </section>
         </div>
-    )
+    );
 }
