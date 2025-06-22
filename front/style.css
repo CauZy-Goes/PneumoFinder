@@ -239,19 +239,6 @@ section#como-usar-imagem {
     text-align: center;
 }
 
-@media (max-width: 1000px) {
-    section#como-usar-imagem {
-        grid-area: como-usar-imagem;
-        text-align: center;
-        background: url(IMGs_PneumoFinder/Logo-Photoroom.png) no-repeat;
-        background-position: bottom center;
-        /* Fica no centro horizontal e embaixo vertical */
-        background-size: 65% auto;
-        /* Garante que a imagem não ultrapasse o tamanho do container */
-        background-repeat: no-repeat;
-        min-height: 200px;
-    }
-}
 
 section#como-usar-conteudo h1 {
     text-align: center;
@@ -320,4 +307,27 @@ footer .copy {
     margin-top: 1em;
     font-size: 0.9em;
     color: #ffffff;
+}
+
+@media (max-width: 1000px) {
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            'cabecalho'
+            'dropzone-imagem'
+            'dropzone-conteudo'
+            'sobre-imagem'
+            'sobre-conteudo'
+            'como-usar-imagem'
+            'como-usar-conteudo'
+        ;
+        row-gap: 20px;
+        column-gap: 20px;
+        padding: 10px;
+        background-color: #e8e8e8;
+        ;
+    }
 }

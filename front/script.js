@@ -71,7 +71,7 @@ async function enviarImagem() {
 
     try {
         console.log("Enviando a imagem...");
-        const resposta = await fetch("http://127.0.0.1:5000/diagnosticar", {
+        const resposta = await fetch("http://127.0.0.1:5001/diagnosticar", {
             method: "POST",
             body: formData
         });

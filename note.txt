@@ -1,0 +1,9 @@
+Rodar flask
+- venv\Scripts\activate
+- python api.py
+
+Criar Next App
+- npx create-next-app@latest
+
+Rodar servidor local node
+- npm run dev
