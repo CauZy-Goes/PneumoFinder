@@ -20,7 +20,73 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  background-color: #e8e8e8;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.2em;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+.texto-destaque {
+  color: #2d73ff;
+  font-weight: bold;
+}
+
+.texto-destaque-red {
+  color: red;
+  font-weight: bold;
+}
+
+.texto-destaque-yellow {
+  color: #ffb02e;
+  font-weight: bold;
+}
+
+.texto-destaque-green {
+  color: #14a085;
+  font-weight: bold;
+}
+
+.texto-destaque-blue {
+  color: #2d73ff;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "cabecalho cabecalho"
+    "dropzone-conteudo dropzone-imagem"
+    "sobre-imagem sobre-conteudo"
+    "como-usar-conteudo como-usar-imagem";
+  row-gap: 20px;
+  column-gap: 20px;
+  padding: 10px;
+  background-color: #e8e8e8;
+}
+
+header {
+  grid-area: cabecalho;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  border-bottom: 10px solid #016798;
+  text-align: center;
 }
