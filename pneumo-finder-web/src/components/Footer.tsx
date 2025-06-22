@@ -1,15 +1,10 @@
-import Image from "next/image";
-
 export function Footer(){
     return (
     <footer id="rodape">
         <div className="logo-footer">
-            <Image 
+            <img
                 src="/IMGs_PneumoFinder/header-img-Photoroom.png" 
                 alt="Logo Com Nome do PneumoFinder"
-                width={400}
-                height={0}
-                style={{ width: '30%', height: 'auto' }}
             />
         </div>
 
