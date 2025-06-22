@@ -90,3 +90,58 @@ header {
   border-bottom: 10px solid #016798;
   text-align: center;
 }
+
+footer#rodape {
+  background-color: #2d73ff;
+  padding: 2em 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-top: #000342 solid 5px;
+}
+
+footer .logo-footer img {
+  width: 30%;
+  height: auto;
+  margin-bottom: 1em;
+}
+
+.links-sociais a {
+  margin: 0 0.5em;
+  font-size: 3em;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.links-sociais a:hover {
+  color: #000342;
+}
+
+footer .copy {
+  margin-top: 1em;
+  font-size: 0.9em;
+  color: #ffffff;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "cabecalho"
+      "dropzone-imagem"
+      "dropzone-conteudo"
+      "sobre-imagem"
+      "sobre-conteudo"
+      "como-usar-imagem"
+      "como-usar-conteudo";
+    row-gap: 20px;
+    column-gap: 20px;
+    padding: 10px;
+    background-color: #e8e8e8;
+  }
+}

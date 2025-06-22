@@ -2,8 +2,6 @@
 
 import Image from "next/image"
 
-import "@/"
-
 export function Header(){
     return (
         <header>
