@@ -1,0 +1,346 @@
+/* @import "tailwindcss"; */
+@import "@fortawesome/fontawesome-svg-core/styles.css";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  background-color: #e8e8e8;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.2em;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+.texto-destaque {
+  color: #2d73ff;
+  font-weight: bold;
+}
+
+.texto-destaque-red {
+  color: red;
+  font-weight: bold;
+}
+
+.texto-destaque-yellow {
+  color: #ffb02e;
+  font-weight: bold;
+}
+
+.texto-destaque-green {
+  color: #14a085;
+  font-weight: bold;
+}
+
+.texto-destaque-blue {
+  color: #2d73ff;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.global {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "dropzone-conteudo dropzone-imagem"
+    "sobre-imagem sobre-conteudo"
+    "como-usar-conteudo como-usar-imagem";
+  row-gap: 20px;
+  column-gap: 20px;
+  padding: 10px;
+  background-color: #e8e8e8;
+}
+
+header {
+  grid-area: cabecalho;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 10px 0;
+  border-bottom: 10px solid #016798;
+  text-align: center;
+}
+
+section#dropzone-conteudo {
+  grid-area: dropzone-conteudo;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section#dropzone-conteudo h1 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+section#dropzone-conteudo ul {
+  text-align: center;
+  margin: 0;
+}
+
+section#dropzone-conteudo #dropzone {
+  border: 2px dashed #016798;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 30px 0;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  color: #016798;
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: bold;
+
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+section#dropzone-conteudo #dropzone:hover {
+  border-color: #000358;
+  color: #000358;
+}
+
+section#sobre-conteudo ul,
+section#dropzone-conteudo ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0;
+}
+
+section#sobre-conteudo ul li,
+section#dropzone-conteudo ul li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 15px;
+  font-size: 1.05rem;
+  color: #333;
+}
+
+section#sobre-conteudo ul li::before,
+section#dropzone-conteudo ul li::before {
+  content: "✔";
+  position: absolute;
+  left: 5px;
+  top: 0;
+  color: #2d73ff;
+  font-weight: bold;
+}
+
+section#dropzone-conteudo button {
+  padding: 5px 30px;
+  border: 2px solid black;
+  background-color: #2d73ff;
+  color: white;
+  font-size: 1.5em;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+section#dropzone-conteudo button:hover {
+  padding: 5px 30px;
+  background-color: white;
+  color: #2d73ff;
+  font-size: 1.5em;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+section#dropzone-conteudo p {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+#imagem {
+  display: none;
+}
+
+section#dropzone-imagem {
+  grid-area: dropzone-imagem;
+  text-align: center;
+}
+
+section#sobre-imagem {
+  grid-area: sobre-imagem;
+  text-align: center;
+}
+
+section#dropzone-imagem > img,
+section#sobre-imagem > img,
+section#como-usar-imagem > img {
+  max-width: 100%;
+  width: 100%;
+}
+
+section#sobre-conteudo {
+  grid-area: sobre-conteudo;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+section#sobre-conteudo h1 {
+  margin-top: 0;
+}
+
+section#sobre-conteudo h2,
+section#sobre-conteudo h3 {
+  margin: 0.2em 0;
+  color: #2d73ff;
+}
+
+section#sobre-conteudo p {
+  margin: 0 0 1em;
+  line-height: 1.6;
+  font-size: 1.2em;
+}
+
+section#sobre-conteudo ul li::before {
+  content: "✔";
+  position: absolute;
+  left: 5px;
+  top: 0;
+  color: #2d73ff;
+  font-weight: bold;
+}
+
+section#como-usar-conteudo {
+  grid-area: como-usar-conteudo;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+section#como-usar-imagem {
+  grid-area: como-usar-imagem;
+  text-align: center;
+}
+
+section#como-usar-conteudo h1 {
+  text-align: center;
+  margin-bottom: 0.5em;
+  margin-top: 0;
+  color: #2d73ff;
+}
+
+section#como-usar-conteudo p {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+section#como-usar-conteudo ol {
+  list-style: none;
+  padding-left: 1.5rem;
+  font-size: 1.1em;
+  max-width: 800px;
+}
+
+section#como-usar-conteudo ol li {
+  text-align: left;
+  margin-bottom: 2em;
+  line-height: 1.6;
+}
+
+kbd {
+  background-color: #f0f0f0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.95em;
+}
+
+footer#rodape {
+  background-color: #2d73ff;
+  padding: 2em 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-top: #000342 solid 5px;
+}
+
+footer .logo-footer img {
+  width: 30%;
+  height: auto;
+  margin-bottom: 1em;
+}
+
+.links-sociais a {
+  margin: 0 0.7em;
+  font-size: 3em;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.links-sociais a:hover {
+  color: #000342;
+}
+
+footer .copy {
+  margin-top: 1em;
+  font-size: 0.9em;
+  color: #ffffff;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "dropzone-imagem"
+      "dropzone-conteudo"
+      "sobre-imagem"
+      "sobre-conteudo"
+      "como-usar-imagem"
+      "como-usar-conteudo";
+    row-gap: 20px;
+    column-gap: 20px;
+    padding: 10px;
+    background-color: #e8e8e8;
+  }
+}
