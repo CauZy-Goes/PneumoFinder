@@ -22,37 +22,55 @@ Esse repositório contém todo o pipeline de treinamento, incluindo:
 
 ## 🔧 Tecnologias Utilizadas
 
-
 ### 🧠 Backend - IA com Flask
 - Python 3
 - TensorFlow / Keras
 - Flask + Flask-CORS
 - Modelo CNN treinado (`.keras`)
 
-### 🌐 Frontend - Upload e visualização
-- HTML5
-- CSS3
-- JavaScript Puro (Vanilla JS)
+### 🌐 Frontend - Web App Moderno
+- React
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Node.js (ambiente de execução e build do Next)
 
 ---
 
 ## 📁 Estrutura do Projeto
 
 ```
-pneumo-finder/
-├── backend/
-│   ├── pneumo_finder_service.py      # Classe DetectorDePneumonia com métodos de diagnóstico
-│   ├── api.py                        # API Flask para receber imagens e retornar diagnóstico
-│   ├── best_model.keras              # Modelo treinado
-│   └── temp/                         # Pasta temporária para armazenar imagens recebidas
+PneumoFinder/
+├── back/ # Backend com Flask + IA
+│ ├── imgs/ # Imagens auxiliares
+│ ├── temp/ # Uploads temporários
+│ ├── api.py # Arquivo principal da API
+│ ├── pneumo_finder_service.py # Serviço de processamento da IA
+│ ├── testar_modelo.py # Script para testes do modelo
+│ ├── best_model.keras # Modelo treinado
+│ └── requirements.txt # Dependências Python
 │
-├── front/
-│   ├── index.html                    # Página principal com interface de upload
-│   ├── style.css                     # Estilos da interface
-│   ├── script.js                     # Lógica JS para upload e exibição do diagnóstico
-│   └── IMGs_PneumoFinder/           # Imagens visuais da interface (robo normal e alerta)
+├── pneumo-finder-web/ # Frontend com Next.js + React
+│ ├── public/ # Imagens públicas e assets
+│ ├── src/ # Código fonte
+│ │ ├── app/ # Rotas, layouts e páginas
+│ │ │ ├── favicon.ico
+│ │ │ ├── globals.css
+│ │ │ ├── layout.tsx
+│ │ │ └── page.tsx
+│ │ ├── components/ # Componentes reutilizáveis
+│ │ │ ├── Footer.tsx
+│ │ │ ├── Header.tsx
+│ │ │ └── Main.tsx
+│ │ └── utility/ # Utilitários como icons.ts
+│ │ └── icons.ts
+│ ├── .gitignore
+│ ├── next.config.ts
+│ ├── package.json
+│ ├── tsconfig.json
+│ └── README.md
 │
-└── README.md                         # Documentação do projeto
+└── README.md # Documentação principal
 ```
 ---
 
@@ -113,9 +131,23 @@ O servidor estará disponível em `http://127.0.0.1:5000`.
 
 ---
 
-### 3. Frontend
+### 3. Frontend - Aplicação Web Next.js + React
 
-Abra o arquivo `index.html` localizado na pasta `front/` em qualquer navegador moderno.
+#### ✅ Pré-requisitos
+- Node.js (versão 18 ou superior recomendado)
+- npm ou yarn
+
+#### 📦 Instalar dependências
+
+```bash
+cd pneumo-finder-web
+npm install
+```
+### 🚀 Executar o projeto em modo desenvolvimento
+
+```bash
+npm run dev
+```
 
 ---
 
