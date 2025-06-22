@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 export function Footer(){
     return (
     <footer id="rodape">
@@ -9,17 +11,17 @@ export function Footer(){
         </div>
 
 
-        <div className="links-sociais">
-            <a href="https://github.com/CauZy-Goes?tab=repositories" target="_blank" aria-label="GitHub">
-                <i className="fa-brands fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/feed/" target="_blank" aria-label="LinkedIn">
-                <i className="fa-brands fa-linkedin"></i>
-            </a>
-            <a href="https://x.com/cauzy_goes" target="_blank" aria-label="X (Twitter)">
-                <i className="fa-brands fa-x-twitter"></i>
-            </a>
-        </div>
+      <div className="links-sociais">
+        <a href="https://github.com/CauZy-Goes" target="_blank" aria-label="GitHub">
+          <FontAwesomeIcon icon={['fab', 'github']} />
+        </a>
+        <a href="https://www.linkedin.com/in/cauzy-goes/" target="_blank" aria-label="LinkedIn">
+          <FontAwesomeIcon icon={['fab', 'linkedin']} />
+        </a>
+        <a href="https://x.com/cauzy_goes" target="_blank" aria-label="X (Twitter)">
+          <FontAwesomeIcon icon={['fab', 'x-twitter']} />
+        </a>
+      </div>
 
 
         <p className="copy">© 2025 Cauã Goes - Projeto Acadêmico IA</p>

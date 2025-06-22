@@ -7,3 +7,6 @@ Criar Next App
 
 Rodar servidor local node
 - npm run dev
+
+
+npm install --save @fortawesome/react-fontawesome @fortawesome/free-brands-svg-icons @fortawesome/fontawesome-svg-core
