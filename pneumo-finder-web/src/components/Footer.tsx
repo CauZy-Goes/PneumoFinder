@@ -3,7 +3,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export function Footer(){
     return (
     <footer id="rodape">
-        <div className="logo-footer">
+        <div className="logo-footer
+        bg-[#2d73ff]
+        px-4
+        py-8
+        flex 
+        flex-col
+        items-center
+        text-center
+        border-t-[5px] 
+        border-[#000342]">
             <img
                 src="/IMGs_PneumoFinder/header-img-Photoroom.png" 
                 alt="Logo Com Nome do PneumoFinder"
