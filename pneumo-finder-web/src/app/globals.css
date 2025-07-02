@@ -86,7 +86,7 @@ h3 {
   background-color: #e8e8e8;
 }
 
-header {
+/* header {
   grid-area: cabecalho;
   display: flex;
   justify-content: center;
@@ -94,7 +94,7 @@ header {
   padding: 10px 10px 0;
   border-bottom: 10px solid #016798;
   text-align: center;
-}
+} */
 
 section#dropzone-conteudo {
   grid-area: dropzone-conteudo;

@@ -16,12 +16,13 @@ export function Footer(){
         border-t-[5px] 
         border-[#000342]">
 
-      <div className="flex justify-center">
+      <div className="flex justify-center ml-3">
           <Image
             src="/IMGs_PneumoFinder/header-img-Photoroom.png"
             alt="Logo Com Nome do PneumoFinder"
             width={300} // você pode ajustar esse valor conforme a imagem original
             height={100} // ajuste proporcional à largura
+            className='ml-4'
           />
       </div>
 
