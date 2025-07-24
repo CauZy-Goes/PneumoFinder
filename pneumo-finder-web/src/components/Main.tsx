@@ -44,7 +44,7 @@ export function Main() {
     };
   }, []);
 
-  const enviarImagem = async () => {
+const enviarImagem = async () => {
   if (!imagemArquivo) {
     alert('Selecione uma imagem primeiro!');
     return;
@@ -56,7 +56,7 @@ export function Main() {
   formData.append('imagem', imagemArquivo);
 
   try {
-    const resposta = await fetch('http://127.0.0.1:5001/diagnosticar', {
+    const resposta = await fetch('http://127.0.0.1:5001/diagnostico_completo', {
       method: 'POST',
       body: formData,
     });
@@ -65,28 +65,37 @@ export function Main() {
 
     if (dados.erro) {
       setResultado(`Erro: ${dados.erro}`);
+    } else if (dados.classe_pulmao !== 'PULMÃO') {
+      // Caso a imagem NÃO seja de um pulmão
+      setResultado(
+        `<span style= "color:red"> A imagem enviada não é um pulmão </span>`
+      );
+      setImagemRobo('IMGs_PneumoFinder/dropzone-imagem-red-Photoroom.png');
     } else {
-      const classeCor = dados.classe === 'NORMAL' ? 'texto-destaque' : 'texto-destaque-red';
+      // Imagem É um pulmão - prossegue com o diagnóstico de pneumonia
+      const corClasse =
+        dados.classe_pneumonia === 'NORMAL' ? 'texto-destaque' : 'texto-destaque-red';
 
-      // ✅ 🔥 Aqui troca a imagem do robô de acordo com o resultado:
-      if (dados.classe === 'NORMAL') {
+      // Define imagem do robô baseada no diagnóstico
+      if (dados.classe_pneumonia === 'NORMAL') {
         setImagemRobo('IMGs_PneumoFinder/dropzone-imagem-Photoroom.png');
       } else {
         setImagemRobo('IMGs_PneumoFinder/dropzone-imagem-red-Photoroom.png');
       }
 
       setResultado(
-        `Diagnóstico: ` +
-          `<span class="${classeCor}">${dados.classe}</span> ` +
-          `(Confiança: <span class="${classeCor}">${dados.confianca}</span>)`
+        `✅ Imagem reconhecida como <strong>PULMÃO</strong><br/>` +
+        `🩺 Diagnóstico: <span class="${corClasse}">${dados.classe_pneumonia}</span> ` +
+        `(Confiança: <span class="${corClasse}">${dados.confianca_pneumonia}%</span>)`
       );
     }
   } catch (error) {
-    setResultado('Erro ao enviar a imagem. Verifique sua conexão.');
+    setResultado('Erro ao enviar a imagem. Verifique sua conexão. ' + error);
   }
 
   setImagemArquivo(null);
 };
+
 
 
   // 👉 Evento de clicar na dropzone
