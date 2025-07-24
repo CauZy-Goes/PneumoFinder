@@ -68,9 +68,9 @@ const enviarImagem = async () => {
     } else if (dados.classe_pulmao !== 'PULMÃO') {
       // Caso a imagem NÃO seja de um pulmão
       setResultado(
-        `<span style= "color:red"> A imagem enviada não é um pulmão </span>`
+        `<span style= "color:orange"> A imagem enviada não é um pulmão </span>`
       );
-      setImagemRobo('IMGs_PneumoFinder/dropzone-imagem-red-Photoroom.png');
+      setImagemRobo('IMGs_PneumoFinder/dropzone-imagem-yellow-Photoroom.png');
     } else {
       // Imagem É um pulmão - prossegue com o diagnóstico de pneumonia
       const corClasse =
@@ -255,7 +255,7 @@ const enviarImagem = async () => {
                     <li>
                         <span className="texto-destaque-blue">Passo 2:</span> Escolha uma imagem com <span
                             className="texto-destaque">boa
-                            resolução</span>
+                            resolução </span>
                         e proporções adequadas.
                         <br/><br/><span className="texto-destaque-red">⚠️ Evite imagens com textos, marcações ou figuras que não
                             façam
