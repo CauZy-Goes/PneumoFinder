@@ -29,15 +29,15 @@ export function Footer(){
 
       <div className="flex justify-center">
         <a href="https://github.com/CauZy-Goes" target="_blank" aria-label="GitHub"
-              className="mx-[0.7em] text-[3em] text-white no-underline transition-colors duration-300 ease-in-out hover:text-[#000342]">
+              className="mx-[0.7em] text-[3em] text-white no-underline transition-transform duration-300 ease-in-out hover:text-[#000342] hover:scale-110">
           <FontAwesomeIcon icon={['fab', 'github']} />
         </a>
         <a href="https://www.linkedin.com/in/cauzy-goes/" target="_blank" aria-label="LinkedIn"
-              className="mx-[0.7em] text-[3em] text-white no-underline transition-colors duration-300 ease-in-out hover:text-[#000342]">
+              className="mx-[0.7em] text-[3em] text-white no-underline transition-transform duration-300 ease-in-out hover:text-[#000342] hover:scale-110">
           <FontAwesomeIcon icon={['fab', 'linkedin']} />
         </a>
         <a href="https://x.com/cauzy_goes" target="_blank" aria-label="X (Twitter)"
-              className="mx-[0.7em] text-[3em] text-white no-underline transition-colors duration-300 ease-in-out hover:text-[#000342]">
+              className="mx-[0.7em] text-[3em] text-white no-underline  duration-300 ease-in-out hover:text-[#000342] hover:scale-110 transition-transform">
           <FontAwesomeIcon icon={['fab', 'x-twitter']} />
         </a>
       </div>
